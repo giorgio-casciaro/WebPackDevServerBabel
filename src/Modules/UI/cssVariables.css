@@ -1,0 +1,69 @@
+@import "~CivilStyle/Icons/css/civil-icons.css";
+
+html {
+	font-size: 10px
+}
+body {
+	font-size: 10px
+}
+
+
+:root {
+
+	--color_1: #49C8F2;
+	--color_2: #38a4f9;
+  --color_3: #154876;
+  --color_4: #FF6666;
+
+  --color_fb: #2b6eac;
+
+	--color_white: #ffffff;
+	--color_light_gray: #eeeeee;
+	--color_medium_gray: #818181;
+	--color_dark_gray: #666666;
+	--color_black: #000000;
+	--color_green: #8FE24D;
+  --color_warning: #FE8900;
+  --color_error: #FF0000;
+
+	--font_size: 1.6rem;
+	--font_size_small: 1rem;
+
+	--base_module: 1rem;
+	--base_radius: calc(var(--base_module)/2);
+	--icon_size: calc(var(--base_module)*5);
+
+	--text_shadow: 0 0 5px  color(var(--color_dark_gray) a(30%));
+	--text_shadow_2: 0 0 10px  color(var(--color_dark_gray) a(60%));
+	--text_shadow_3: 0 0 5px  color(var(--color_light_gray) a(30%));
+
+	--button_font: calc(var(--base_module)*1.7);
+	--button_height: calc(var(--base_module)*5) ;
+	--button_padding: calc(var(--base_module)*3) ;
+
+	--field_bg_active: rgba(255, 255, 255, 0.5);
+	--field_bg: rgba(255, 255, 255, 1);
+
+	--box_padding: calc(var(--base_module)*3) calc(var(--base_module)*3);
+}
+
+@define-mixin light_gradient $color: blue {
+	border: 1px solid color($color whiteness(+30%));
+	color: color($color blackness(+90%));
+	box-shadow: 0px 2px 10px 0 color($color blackness(+80%)  alpha(-25%) saturation(-50%));
+	text-shadow: 0 0 5px  color($color saturation(-30%) w(+10%));
+	background: linear-gradient(to bottom, color($color )  0%, color($color  blackness(+5%)  saturation(-10%))  100%);
+
+}
+
+@define-mixin dark_gradient $color: blue {
+
+	color: #ffffff;
+	box-shadow: 0px 1px 1px 0 color($color blackness(+30%)  );
+	border: 1px solid color($color whiteness(+10%) saturation(-10%));
+	text-shadow: 0 0 5px  color($color b(+50%) saturation(+30%));/**/
+	background: linear-gradient(to bottom, color($color )  0%, color($color  blackness(+5%)  saturation(-10%))  100%);
+
+}
+
+@lost gutter var(--base_module)*2;
