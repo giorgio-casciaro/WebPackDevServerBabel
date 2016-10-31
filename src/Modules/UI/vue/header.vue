@@ -24,6 +24,7 @@ export default {
 .uiHeader{
 	height: var(--icon_size);
   text-align: center;
+
 }
 
 .uiHeaderLeft{
@@ -33,14 +34,17 @@ export default {
 .uiHeaderRight{
 float: right;
 }
-
 .uiHeaderCenter{
 	display: inline-block;
   margin-left: var(--icon_size);
 	text-align: center;
-	line-height: calc(var(--icon_size)*0.9) ;
-	& a {
+	line-height: var(--icon_size) ;
+  & a {
     display: inline-block;
+    & img {
+      vertical-align:text-top;
+    }
   }
+
 }
 </style>

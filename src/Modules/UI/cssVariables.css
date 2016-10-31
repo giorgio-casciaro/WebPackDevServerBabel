@@ -27,7 +27,8 @@ body {
   --color_error: #FF0000;
 
 	--font_size: 1.6rem;
-	--font_size_small: 1rem;
+	--font_size_small: 1.3rem;
+	--font_size_smallest: 1rem;
 
 	--base_module: 1rem;
 	--base_radius: calc(var(--base_module)/2);

@@ -7,6 +7,8 @@ export default {
     Vue.component('uiButton', require("./vue/button"));
     Vue.component('uiList', require("./vue/list"));
     Vue.component('uiInput', require("./vue/input"));
+    Vue.component('uiSearch', require("./vue/search"));
+    Vue.component('uiCell', require("./vue/cell"));
     Vue.component('uiInputGroup', require("./vue/inputGroup"));
   }
 };

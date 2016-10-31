@@ -5,7 +5,7 @@ div.presentation
     p crea e organizza la tua community
       br
       | o segui quella più vicina a te
-    div: uiButton.green(type="primary") Scopri di più
+    div: uiButton.green(type="primary",size="medium") Scopri di più
 </template>
 
 <script >

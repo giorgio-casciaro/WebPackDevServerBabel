@@ -1,11 +1,12 @@
 <template lang="pug">
 //
-button.uiButton(:type="type",:size="size"): slot
+mtButton.uiButton(:type="type",:size="size"): slot
 //
 </template>
 
 <script >
-
+import Button from 'mint-ui/lib/button';
+import 'mint-ui/lib/button/style.css';
 export default {
   props: {
     type: {
@@ -15,6 +16,9 @@ export default {
       default: "normal"
     }
   },
+  components: {
+    mtButton: Button
+  },
   data() {
     return {};
   }
@@ -23,6 +27,12 @@ export default {
 <style>
 @import "UI/cssVariables.css";
 
+button.mint-button--normal {}
+
+
+.uiButton.mint-button--primary {
+  @mixin dark_gradient var(--color_4);
+}
 
 button.uiButton {
   @mixin light_gradient var(--color_light_gray);
@@ -35,17 +45,9 @@ button.uiButton {
 }
 
 button.uiButton[size='medium'] {
-  font-size: calc(var(--button_font)/1.1);
-  line-height: calc(var(--button_height)/1.33);
+  @mixin light_gradient var(--color_light_gray);
+  line-height: calc(var(--button_height)/2);
   padding: 0 calc(var(--button_padding)/2);
-}
-
-button.uiButton[size='large'] {
-  width:100%
-}
-
-.uiButton[type='primary'] {
-  @mixin dark_gradient var(--color_4);
 }
 
 button.uiButton label {}

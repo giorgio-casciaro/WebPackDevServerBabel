@@ -28,9 +28,11 @@ export default {
 }
 .userRegister .terms{
   display: block;
-  margin-top:.25rem
+  margin-top:.25rem;
+  font-size:var(--font_size_smallest)
 }
 .userRegister .terms,.userRegister .terms a{
   color:color(var(--color_2) b(+25%) s(-45%) );
+
 }
 </style>

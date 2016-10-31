@@ -1,9 +1,6 @@
-
-import {EventEmitter}  from 'eventemitter3';
-
 import R from 'ramda';
 
-export default class Notifications {
+export default class Notification {
   constructor(DI,config) {
     this.config = R.merge({
       path: "./App",
@@ -19,14 +16,14 @@ export default class Notifications {
       "UNLOADED":(state, params)=>state.loaded=false,
       "CHANGE_VIEW":(state, params)=>state.currentView=params,
     };
-    this.stateManager =DI.StateManager.register("App",this.state,this.mutations);
 
-    this.actions = {
-      mutate:this.stateManager.mutate
+    this.modules = {
+      stateManager:DI.StateManager.register("Auth",this.state,this.mutations)
     };
 
-    //this.router = DI.Router(this.routes);
-    //this.server = DI.Server;
-    //this.store = DI.Store({ state: this.state, mutations: this.mutations });
+    this.actions = {
+      mutate:this.modules.stateManager.mutate,
+      getNotifications:this.modules.stateManager.mutate
+    };
   }
 }

@@ -1,38 +1,45 @@
 <template lang="pug">
-div.userRegisterOrLogin
-  div.top(:is="currentView",:auth="auth",transition="fade",transition-mode="out-in")
-  div.bottom
-    div(v-if="currentView==='login'") Non hai ancora un account? #[a(v-on:click="currentView='register'") Registrati]
-    div(v-if="currentView==='register'") Sei già registrato? #[a(v-on:click="currentView='login'") Accedi]
+
+.userRegisterOrLogin
+	transition(name="fade",mode="out-in")
+		component.top(:is="currentView",:auth="auth")
+	.bottom
+		div(v-if="currentView==='login'") Non hai ancora un account? #[a(v-on:click="currentView='register'") Registrati]
+		div(v-if="currentView==='register'") Sei già registrato? #[a(v-on:click="currentView='login'") Accedi]
+
 </template>
 
 <script >
 export default {
-  props:{
-    currentView:{
-      default:"register"
-    },
-    auth:{
-      required:true
+  props: {
+    auth: {
+      required: true
     }
   },
-  components:{
-    register:require("./register"),
-    login:require("./login")
+  data() {
+    return {
+      currentView: "register"
+    }
+  },
+  components: {
+    register: require("./register"),
+    login: require("./login")
   }
 }
 </script>
 
 <style>
 @import "UI/cssVariables.css";
-.userRegisterOrLogin>.top{
+.userRegisterOrLogin {
+  background: color(var(--color_2) w(+60%));
 }
-.userRegisterOrLogin>.bottom{
+
+.userRegisterOrLogin>.bottom {
   padding: 1.5rem;
-  background: color(var(--color_1) w(+20%) s(-45%) );
+  background: color(var(--color_1) w(+20%) s(-45%));
   text-align: center;
   text-shadow: var(--text_shadow_2);
-  color: #fff ;
+  color: #fff;
   & a {
     color: #fff;
     border-bottom: 1px solid #fff

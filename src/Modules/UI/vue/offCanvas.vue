@@ -2,11 +2,10 @@
 
 
 //
-div.uiOffCanvas(:class="{'isOpen':isOpen,name:true}")
+div.uiOffCanvas(:class="[name,{'isOpen':isOpen}]")
 	uiIcon(v-on:click.native="toggle",:icon="icon")
 	div.uiOffCanvasExtContainer
 		mtPopup.uiOffCanvasPopup( v-model="isOpen", :position="from", :modal="false")
-			div.uiOffCanvasIntContainer
 				slot
 //
 
@@ -72,11 +71,10 @@ export default {
 .uiOffCanvas {
 	display: inline-block;
 }
-
-.uiOffCanvasIntContainer {
-	width: 360px;
-	max-width: 100%;
+.uiOffCanvasIntContainer{
+	width: 100vw;
 }
+
 
 .uiOffCanvasPopup {
 	z-index: 10000;
